@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartTradePro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>SmartTradePro</h1>
+</header>
+  <div style="text-align:center; margin:15px;">
+    <button id="loginBtn" onclick="loginDeriv()">
+        Login with Deriv
+    </button>
+  </div>
+
+<nav>
+    <button onclick="showPage('dashboard')">Dashboard</button>
+    <button onclick="showPage('manual')">Manual Trader</button>
+    <button onclick="showPage('scanner')">Scanner</button>
+    <button onclick="showPage('bots')">Bots</button>
+    <button onclick="showPage('settings')">Settings</button>
+</nav>
+
+<main>
+
+<section id="dashboard" class="page">
+
+<div class="card">
+<h2>Dashboard</h2>
+<p>Welcome to SmartTradePro.</p>
+</div>
+
+</section>
+
+<section id="manual" class="page">
+
+  <div class="card">
+    <h2>Manual Trader</h2>
+
+    <select id="market">
+      <option>Volatility 10 Index</option>
+      <option>Volatility 25 Index</option>
+      <option>Volatility 50 Index</option>
+      <option>Volatility 75 Index</option>
+      <option>Volatility 100 Index</option>
+      <option>Volatility 10 (1s) Index</option>
+<option>Volatility 25 (1s) Index</option>
+<option>Volatility 50 (1s) Index</option>
+<option>Volatility 75 (1s) Index</option>
+<option>Volatility 100 (1s) Index</option>
+    </select>
+
+    <br><br>
+
+    <label>Stake</label><br>
+    <input type="number" placeholder="Enter stake">
+
+    <br><br>
+
+    <label>Duration (Ticks)</label><br>
+    <input type="number" value="5">
+
+    <br><br>
+
+<label>Contract Type</label><br>
+<select id="contractType">
+    <option value="overunder">Over/Under</option>
+    <option value="matchesdiffers">Matches/Differs</option>
+    <option value="evenodd">Even/Odd</option>
+</select>
+
+<br><br>
+
+    <div id="predictionSection">
+<label>Prediction Digit</label><br>
+<select>
+
+  <option>0</option>
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option selected>5</option>
+  <option>6</option>
+  <option>7</option>
+  <option>8</option>
+  <option>9</option>
+
+</select>
+    </div>
+<br><br>
+
+<button id="buyButton1">Buy Over</button>
+
+<button id="buyButton2">Buy Under</button>
+
+<div class="card">
+  <h3>Market Information</h3>
+  <p>Current Price: <span id="price">Waiting for live data...</span></p>
+  <p>Status: <span id="status">Disconnected</span></p>
+</div>
+
+  </div>
+
+</section>
+
+<section id="scanner" class="page">
+
+<div class="card">
+<h2>Digit Scanner</h2>
+<p>Scanner coming soon.</p>
+</div>
+
+</section>
+
+<section id="bots" class="page">
+
+<div class="card">
+<h2>Bots</h2>
+<p>Over 3 Bot, Under 6 Bot and more.</p>
+</div>
+
+</section>
+
+<section id="settings" class="page">
+
+<div class="card">
+<h2>Settings</h2>
+<p>Platform settings.</p>
+</div>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
