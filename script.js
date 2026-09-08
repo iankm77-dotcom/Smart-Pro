@@ -156,7 +156,7 @@ updateButtons();
 // Login with Deriv (OAuth)
 function loginDeriv() {
 
-    const clientId = "3428HXS3eIocfMlYHYmUf";
+    const clientId = "34d8l4gpZvYeLnHZVacCy";
     const redirectUri = "https://derivpro.top/oauth/callback.html";
 
     const url =
