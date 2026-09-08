@@ -160,7 +160,7 @@ function loginDeriv() {
     const redirectUri = "https://derivpro.top/oauth/callback.html";
 
     const url =
-        "https://auth.deriv.com/oauth2/auth" +
+        "https://oauth.deriv.com/oauth2/authorize" +
         "?response_type=code" +
         "&client_id=" + encodeURIComponent(clientId) +
         "&redirect_uri=" + encodeURIComponent(redirectUri);
