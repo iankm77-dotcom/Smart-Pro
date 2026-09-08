@@ -157,7 +157,7 @@ updateButtons();
 function loginDeriv() {
 
     const clientId = "3428HXS3eIocfMlYHYmUf";
-    const redirectUri = "https://smartradepro.top";
+    const redirectUri = "https://derivpro.top/oauth/callback.html";
 
     const url =
         "https://oauth.deriv.com/oauth2/authorize" +
