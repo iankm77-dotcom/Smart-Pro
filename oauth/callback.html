@@ -129,13 +129,13 @@ const codeVerifier =
           data.access_token
         );
 
-        sessionStorage.removeItem(
-          "deriv_oauth_state"
-        );
+        localStorage.removeItem(
+    "deriv_oauth_state"
+);
 
-        sessionStorage.removeItem(
-          "deriv_code_verifier"
-        );
+localStorage.removeItem(
+    "deriv_code_verifier"
+);
 
         document.getElementById("status").textContent =
           "Deriv login successful. Returning to Smart Pro...";
