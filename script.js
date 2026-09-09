@@ -154,16 +154,41 @@ updateButtons();
 // =========================
 
 // Login with Deriv (OAuth)
-function loginDeriv() {
+async function loginDeriv() {
 
     const clientId = "34d8l4gpZvYeLnHZVacCy";
     const redirectUri = "https://derivpro.top/oauth/callback.html";
 
+    // Generate OAuth state
+    const state = crypto.randomUUID();
+
+    // Generate PKCE code verifier
+    const codeVerifier = crypto.randomUUID() + crypto.randomUUID();
+
+    sessionStorage.setItem("deriv_oauth_state", state);
+    sessionStorage.setItem("deriv_code_verifier", codeVerifier);
+
+    // Create SHA-256 code challenge
+    const encoder = new TextEncoder();
+    const data = encoder.encode(codeVerifier);
+    const hash = await crypto.subtle.digest("SHA-256", data);
+
+    // Convert hash to Base64 URL format
+    const codeChallenge = btoa(
+        String.fromCharCode(...new Uint8Array(hash))
+    )
+        .replace(/\+/g, "-")
+        .replace(/\//g, "_")
+        .replace(/=+$/, "");
+
     const url =
-        "https://oauth.deriv.com/oauth2/authorize" +
+        "https://auth.deriv.com/oauth2/auth" +
         "?response_type=code" +
         "&client_id=" + encodeURIComponent(clientId) +
-        "&redirect_uri=" + encodeURIComponent(redirectUri);
+        "&redirect_uri=" + encodeURIComponent(redirectUri) +
+        "&state=" + encodeURIComponent(state) +
+        "&code_challenge=" + encodeURIComponent(codeChallenge) +
+        "&code_challenge_method=S256";
 
     window.location.href = url;
 }
