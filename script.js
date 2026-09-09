@@ -159,21 +159,18 @@ async function loginDeriv() {
     const clientId = "34d8l4gpZvYeLnHZVacCy";
     const redirectUri = "https://derivpro.top/oauth/callback.html";
 
-    // Generate OAuth state
     const state = crypto.randomUUID();
 
-    // Generate PKCE code verifier
     const codeVerifier = crypto.randomUUID() + crypto.randomUUID();
 
-    sessionStorage.setItem("deriv_oauth_state", state);
-    sessionStorage.setItem("deriv_code_verifier", codeVerifier);
+    localStorage.setItem("deriv_oauth_state", state);
+    localStorage.setItem("deriv_code_verifier", codeVerifier);
 
-    // Create SHA-256 code challenge
     const encoder = new TextEncoder();
     const data = encoder.encode(codeVerifier);
+
     const hash = await crypto.subtle.digest("SHA-256", data);
 
-    // Convert hash to Base64 URL format
     const codeChallenge = btoa(
         String.fromCharCode(...new Uint8Array(hash))
     )
