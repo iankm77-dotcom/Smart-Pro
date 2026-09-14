@@ -206,3 +206,11 @@ function checkOAuthCallback() {
 }
 
 checkOAuthCallback();
+// Check whether Deriv OAuth login produced an access token
+const derivToken = sessionStorage.getItem("deriv_access_token");
+
+if (derivToken) {
+    console.log("Smart Pro: Deriv access token found.");
+} else {
+    console.log("Smart Pro: No Deriv access token found.");
+}
